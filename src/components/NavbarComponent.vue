@@ -78,7 +78,7 @@ export default {
     </nav>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../styles/general.scss';
 @use '../styles/partials/variables.scss' as *;
 
