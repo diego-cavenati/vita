@@ -4,9 +4,20 @@ export default {
     data() {
         return {
             isOpen: false,
+            isWide: false,
         };
     },
+    mounted() {
+        this.isWide = window.innerWidth >= 390;
+        window.addEventListener('resize', this.onResize);
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.onResize);
+    },
     methods: {
+        onResize() {
+            this.isWide = window.innerWidth >= 391;
+        },
         toggleMenu() {
             this.isOpen = !this.isOpen;
         },
@@ -16,7 +27,7 @@ export default {
 
 <template>
     <nav>
-        <div class="container">
+        <div :class="{ 'container': isWide }">
             <!-- top section of navbar -->
             <div class="top_section">
                 <div class="links">
@@ -63,10 +74,7 @@ export default {
                 </svg>
             </div>
 
-
-
         </div>
-
     </nav>
 </template>
 
@@ -75,14 +83,18 @@ export default {
 @use '../styles/partials/variables.scss' as *;
 
 nav {
-    padding: 0.5rem 0;
 
     .top_section {
+        padding: 0.7rem 0;
         display: flex;
+        align-items: center;
 
         .links {
+
             ul {
                 display: flex;
+                align-items: center;
+                margin-bottom: 0;
 
                 li {
                     padding-right: 1.5rem;
@@ -94,7 +106,7 @@ nav {
             margin-left: auto;
 
             svg {
-                width: 1.25rem;
+                width: 1rem;
                 margin-right: 0.5rem;
             }
         }
@@ -137,20 +149,9 @@ nav {
         .hamburger_line {
             width: 20px;
             height: 2px;
+            border-radius: 1rem;
             background-color: $color-primary;
             transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
-        }
-
-        .hamburger_line:nth-child(1) {
-            transform: translateY(0);
-        }
-
-        .hamburger_line:nth-child(2) {
-            transform: translateY(1px);
-        }
-
-        .hamburger_line:nth-child(3) {
-            transform: translateY(2px);
         }
 
         .hamburger_menu.active .hamburger_line:nth-child(1) {
@@ -163,6 +164,52 @@ nav {
 
         .hamburger_menu.active .hamburger_line:nth-child(3) {
             transform: translateY(-8px) rotate(-45deg);
+        }
+    }
+}
+
+
+/**********************
+      Responsive
+***********************/
+@media screen and (max-width: 390px) {
+    nav {
+        .top_section {
+            margin-top: 3rem;
+            padding: 0;
+
+            .links {
+                width: 100%;
+
+                ul {
+                    border-top: 1px solid black;
+                }
+
+                li {
+                    border-right: 1px solid black;
+                    padding: 1rem;
+                    flex-basis: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &:last-child {
+                        border-right: 0;
+                    }
+                }
+            }
+
+            .login {
+                display: none;
+            }
+        }
+
+
+        .nav_action {
+
+            .box_action {
+                padding: 1rem;
+            }
         }
     }
 }
