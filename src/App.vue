@@ -1,7 +1,7 @@
 <script>
 import BlogComponent from './components/BlogComponent.vue';
 import CitationComponent from './components/CitationComponent.vue';
-import ClaimComponent from './components/ClaimComponent.vue';
+import SupportUs from './components/SupportUs.vue';
 import ClosingNews from './components/ClosingNews.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import MainNews from './components/MainNews.vue';
@@ -15,7 +15,7 @@ export default {
         NavbarComponent,
         ThemesComponent,
         MainNews,
-        ClaimComponent,
+        SupportUs,
         SecondaryNews,
         CitationComponent,
         BlogComponent,
@@ -30,7 +30,7 @@ export default {
     <NavbarComponent />
     <ThemesComponent />
     <MainNews />
-    <ClaimComponent />
+    <SupportUs />
     <SecondaryNews />
     <CitationComponent />
     <BlogComponent />

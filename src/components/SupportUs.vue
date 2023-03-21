@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: 'ClaimComponent',
+    name: 'SupportUs',
 }
 </script>
 

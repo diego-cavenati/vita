@@ -1,2 +1,83 @@
+// Import variables
+@use './partials/variables.scss' as *;
 // Import all of Bootstrap's CSS
 @import "/node_modules/bootstrap/scss/bootstrap";
+
+
+/************
+  Typography
+*************/
+
+body {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: $color-primary-dark;
+}
+
+.title_s {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.title_m {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.title_l {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 46px;
+}
+
+.title_xl {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+}
+
+.title_xxl {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 46px;
+}
+
+.subtitle_m {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+}
+
+.tag {
+    font-family: $font-secondary;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    text-transform: uppercase;
+}
+
+.note {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 16px;
+}
