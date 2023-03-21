@@ -20,6 +20,11 @@ export default {
         },
         toggleMenu() {
             this.isOpen = !this.isOpen;
+            if (this.isOpen) {
+                document.body.classList.add("menu-open");
+            } else {
+                document.body.classList.remove("menu-open");
+            }
         },
     },
 }
@@ -76,6 +81,28 @@ export default {
 
         </div>
     </nav>
+    <div class="fullscreen_menu" v-if="isOpen">
+        <div class="menu_grid">
+            <div class="menu_box">
+                <div class="menu_item">Articoli</div>
+            </div>
+            <div class="menu_box">
+                <div class="menu_item">Storie</div>
+            </div>
+            <div class="menu_box">
+                <div class="menu_item">Interviste</div>
+            </div>
+            <div class="menu_box">
+                <div class="menu_item">Opinioni</div>
+            </div>
+            <div class="menu_box">
+                <div class="menu_item">Podcast</div>
+            </div>
+            <div class="menu_box">
+                <div class="menu_item">Bookazine</div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -83,7 +110,6 @@ export default {
 @use '../styles/partials/variables.scss' as *;
 
 nav {
-
     .top_section {
         padding: 0.7rem 0;
         display: flex;
@@ -168,6 +194,42 @@ nav {
     }
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
+.fullscreen_menu {
+    position: fixed;
+    top: 142px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 142px);
+    background-color: white;
+    z-index: 100;
+
+    .menu_grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .menu_box {
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+
+        .menu_item {
+            text-align: center;
+        }
+    }
+}
 
 /**********************
       Responsive
