@@ -4,6 +4,31 @@
 @import "/node_modules/bootstrap/scss/bootstrap";
 
 
+/**********************
+  Reset default value
+***********************/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+
+
 /************
   Typography
 *************/
