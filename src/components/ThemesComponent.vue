@@ -1,13 +1,30 @@
 <script>
 export default {
     name: 'ThemesComponent',
+    data() {
+        return {
+            isWide: false,
+        };
+    },
+    mounted() {
+        this.isWide = window.innerWidth >= 391;
+        window.addEventListener('resize', this.onResize);
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.onResize);
+    },
+    methods: {
+        onResize() {
+            this.isWide = window.innerWidth >= 391;
+        },
+    },
 }
 </script>
 
 <template>
     <div id="themes">
         <div class="container">
-            <h2 class="title_xxl">Tutti i temi</h2>
+            <h2 :class="{ 'title_xxl': isWide, 'title_xl': !isWide }">Tutti i temi</h2>
             <div class="category">
                 <a href="#" class="button tag">ambiente</a>
                 <a href="#" class="button tag">economia</a>
@@ -53,7 +70,7 @@ export default {
 ***********************/
 @media screen and (max-width: 390px) {
     #themes {
-        padding: 4rem 0;
+        padding: 2rem 0;
         background-color: $color-background;
 
         .container {
@@ -63,7 +80,7 @@ export default {
             flex-wrap: wrap;
         }
 
-        .title_xxl {
+        .title_xl {
             flex: 1 0 100%;
             margin-bottom: 1rem;
         }

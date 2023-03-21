@@ -1,6 +1,23 @@
 <script>
 export default {
     name: 'MainNews',
+    data() {
+        return {
+            isWide: false,
+        };
+    },
+    mounted() {
+        this.isWide = window.innerWidth >= 391;
+        window.addEventListener('resize', this.onResize);
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.onResize);
+    },
+    methods: {
+        onResize() {
+            this.isWide = window.innerWidth >= 391;
+        },
+    },
 }
 </script>
 
@@ -10,7 +27,8 @@ export default {
             <div class="container">
                 <div class="news_info">
                     <div class="button tag">Migranti</div>
-                    <div class="title_xl">Roccella Jonica, la Lampedusa che l'Italia ignora</div>
+                    <div :class="{ 'title_xl': isWide, 'title_m': !isWide }">Roccella Jonica, la Lampedusa che l'Italia
+                        ignora</div>
                     <div class="author_info">
                         <img class="author_image" src="../assets/img/author_1.jpg" alt="Autore" />
                         <div class="author_text">
@@ -81,6 +99,32 @@ export default {
     .title_xl {
         max-width: 50%;
         padding-bottom: 1.5rem;
+    }
+}
+
+
+/**********************
+      Responsive
+***********************/
+@media screen and (max-width: 390px) {
+    #main_news {
+
+        .principal {
+            height: 20rem;
+        }
+
+        .button {
+            margin-bottom: 1rem;
+        }
+
+        .news_info {
+            padding-top: 6rem;
+        }
+
+        .title_m {
+            max-width: 70%;
+            padding-bottom: 1rem;
+        }
     }
 }
 </style>
